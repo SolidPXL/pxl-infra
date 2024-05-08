@@ -20,9 +20,6 @@ resource "hcloud_server" "server" {
     ipv4_enabled = true
     ipv6_enabled = true
   }
-  user_data = templatefile("${path.module}/scripts/user_data.yaml.tftpl", {
-    student_name = lower(var.student_name)
-  })
 }
 
 resource "gandi_livedns_record" "a_record" {

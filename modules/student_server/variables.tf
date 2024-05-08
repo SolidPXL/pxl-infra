@@ -7,7 +7,7 @@ variable "student_name" {
 variable "server_type" {
   description = "The type of server to launch on Hetzner cloud"
   type        = string
-  default     = "cx11"
+  default     = "cax11"
 }
 
 variable "image" {
