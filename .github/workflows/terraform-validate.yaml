@@ -1,0 +1,22 @@
+name: 'Terraform Validate Workflow'
+on:
+  pull_request:
+jobs:
+  terraform_check:
+    name: "Check if Terraform code is valid"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.4.2"
+      - name: "Check for Terraform formatting errors"
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+      - name: "Initialise Terraform"
+        id: init
+        run: terraform init -backend=false
+      - name: "Validate Terraform code"
+        id: validate
+        run: terraform validate -no-color
