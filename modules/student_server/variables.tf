@@ -13,7 +13,7 @@ variable "server_type" {
 variable "image" {
   description = "The image to use to launch on Hetzner cloud"
   type        = string
-  default     = "debian-12"
+  default     = "ubuntu-24.04"
 }
 
 variable "location" {
