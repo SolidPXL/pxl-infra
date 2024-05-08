@@ -12,8 +12,7 @@ jobs:
           terraform_version: "1.4.2"
       - name: "Check for Terraform formatting errors"
         id: fmt
-        run: terraform fmt -check
-        continue-on-error: true
+        run: terraform fmt -check -diff -recursive
       - name: "Initialise Terraform"
         id: init
         run: terraform init -backend=false
